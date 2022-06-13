@@ -6,13 +6,16 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/09 12:39:14 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:47:45 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    swap_a(stack *a)
+void swap(int* a, int* b)
 {
-    stack *temp;
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
 }

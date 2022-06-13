@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/09 11:16:33 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/10 12:21:51 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,35 @@ void	insert(stack **head, int num)
 	}
 }
 
-void	display(stack *a)
+void	display(stack *a, stack *b)
 {
 	stack *curr = a;
+	printf("---------------------------------------------------------------------------\n");
 	while (curr)
 	{
-		printf("%d-->", curr->num);
+		printf("%d \n", curr->num);
 		curr = curr->next;
 	}
-	printf("NULL");
+	printf("- - \n a b \n");
+	printf("---------------------------------------------------------------------------\n");
 }
 
 int main(int ac, char **av)
 {
+	stack *b= NULL;
 	if(ac > 1)
 	{
 		int	i;
 		i = 1;
+		stack *temp, *poop;
 		stack *a = NULL;
 		while(i < ac)
 			insert(&a, ft_atoi(av[i++]));
-		display(a);
-		printf("\n"); 
+		display(a,b);
+		temp = a;
+		swap(&temp->num,&temp->next->num);
+		display(a,b);
 	}
-	stack *b= NULL;
-	display(b);
+	
+	//display(b);
 }
