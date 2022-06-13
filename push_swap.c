@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/10 12:21:51 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/13 09:01:51 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,22 @@
 void	insert(stack **head, int num)
 {
 	stack	*new;
+	stack	*temp;
 
 	new = (stack *)malloc(sizeof(stack));
-	if(new)
+	temp = *head;
+	new->num = num;
+	new->next = NULL;
+	if(head)
 	{
-		new->num = num;
-		new->next = *head;
-		*head = new;
+		if (!(*head))
+		{
+			*head = new;
+			return ;
+		}
+		while(temp->next != NULL)
+			temp = temp->next;
+		temp->next = new;
 	}
 }
 
@@ -38,22 +47,24 @@ void	display(stack *a, stack *b)
 	printf("---------------------------------------------------------------------------\n");
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	stack *b= NULL;
+	stack *b = NULL;
+	stack *a = NULL;
 	if(ac > 1)
 	{
 		int	i;
 		i = 1;
-		stack *temp, *poop;
-		stack *a = NULL;
+		stack *temp;	
 		while(i < ac)
+		{
 			insert(&a, ft_atoi(av[i++]));
+			//insert(&b, ft_atoi(av[i++]));
+		}
 		display(a,b);
 		temp = a;
-		swap(&temp->num,&temp->next->num);
-		display(a,b);
+		//swap(&a->num,&a->next->num);
+		//display(a,b);
 	}
-	
 	//display(b);
 }

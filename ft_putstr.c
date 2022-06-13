@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/05 14:41:23 by iel-moha         ###   ########.fr       */
+/*   Created: 2021/09/25 18:34:22 by iel-moha          #+#    #+#             */
+/*   Updated: 2022/06/13 07:26:44 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_putstr(char *str)
 {
-	unsigned long	r;
-	int				i;
-	int				o;
+	int	i;
 
 	i = 0;
-	r = 0;
-	o = 1;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (!str)
 	{
-		if (str[i] == '-')
-			o = -1;
+		return (ft_putstr("(null)"));
+	}
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
 		i++;
 	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		r = r * 10 + (str[i] - '0');
-		i++;
-	}
-	if (r >= 9223372036854775807 && o == -1)
-		return (0);
-	else if (r >= 9223372036854775807 && o == 1)
-		return (-1);
-	return (o * r);
+	return (i);
 }
