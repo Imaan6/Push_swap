@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/13 09:01:51 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/14 08:44:30 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,24 @@ void	insert(stack **head, int num)
 void	display(stack *a, stack *b)
 {
 	stack *curr = a;
+	stack *temp = b;
 	printf("---------------------------------------------------------------------------\n");
-	while (curr)
+	while (curr || temp)
 	{
-		printf("%d \n", curr->num);
-		curr = curr->next;
+		if(curr)
+		{
+			printf("%d ", curr->num);
+			curr = curr->next;	
+		}
+		else
+			printf("\n");
+		if(temp)
+		{
+			printf(" %d\n", temp->num);
+			temp = temp->next;
+		}
+		else
+			printf("\n");
 	}
 	printf("- - \n a b \n");
 	printf("---------------------------------------------------------------------------\n");
@@ -54,17 +67,22 @@ int	main(int ac, char **av)
 	if(ac > 1)
 	{
 		int	i;
-		i = 1;
-		stack *temp;	
+		i = 1;	
 		while(i < ac)
 		{
 			insert(&a, ft_atoi(av[i++]));
 			//insert(&b, ft_atoi(av[i++]));
 		}
+		insert(&b, 0);
+		insert(&b, 6);
+		insert(&b, 7);
+		insert(&b, 8);
 		display(a,b);
-		temp = a;
-		//swap(&a->num,&a->next->num);
-		//display(a,b);
+		//push(&a,&b);
+		reverse(&a);
+		// swap(&a->num,&a->next->num);
+		//swap_ab(&a->num,&a->next->num,&b->num,&b->next->num);
+		display(a,b);
 	}
 	//display(b);
 }

@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 06:13:16 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/13 07:27:18 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/14 08:19:36 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ typedef struct Node
 int		ft_atoi(const char *str);
 void	swap(int* a, int* b);
 int		ft_putstr(char *str);
+void	swap_ab(int *aa, int *ab, int *ba, int *bb);
+void	push(stack **a, stack **b);
+void	rotate(stack **a);
+void	rotate_ab(stack **a, stack **b);
+void	reverse(stack **a);
 
 #endif
