@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/16 06:26:25 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/16 07:34:35 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void swap(int* a, int* b)
 {   
-    if(a && b)
+	if(a && b)
     {    
         int temp;
         temp = *a;
@@ -82,4 +82,4 @@ void	reverse_ab(stack **a, stack **b)
 {
 	reverse(a);
 	reverse(b);
-}
+} 

@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/15 11:14:15 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/16 10:48:42 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ int	main(int ac, char **av)
 {
 	stack *b = NULL;
 	stack *a = NULL;
-	if(ac > 1)
+	if(ac > 1 && check_dups(av))
 	{
+		//printf("Im here");
 		int	i;
 		i = 1;	
 		while(i < ac)
@@ -73,16 +74,16 @@ int	main(int ac, char **av)
 			insert(&a, ft_atoi(av[i++]));
 			//insert(&b, ft_atoi(av[i++]));
 		}
-		insert(&b, 0);
-		insert(&b, 6);
-		insert(&b, 7);
-		insert(&b, 8);
-		display(a,b);
+		insert(&b, 9);
+		insert(&b, 4);
+		insert(&b, 2);
+		insert(&b, 5);
+		//display(a,b);
 		//push(&a,&b);
-		reverse_ab(&a,&b);
-		// swap(&a->num,&a->next->num);
+		//reverse_ab(&a,&b);
+		//swap(&a->num,&a->next->num);
 		//swap_ab(&a->num,&a->next->num,&b->num,&b->next->num);
-		display(a,b);
+		//display(a,b);
 	}
-	//display(b);
+	//display(b);1
 }

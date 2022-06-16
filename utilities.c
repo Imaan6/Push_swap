@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/13 09:05:08 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/16 11:16:39 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,26 @@ int	ft_putstr(char *str)
 		i++;
 	}
 	return (i);
+}
+
+int	check_dups(char **av)
+{
+	int i , j;
+	i = 1;
+	while(av[i+1])
+	{
+		j=i+1;
+		while(av[j])
+		{
+			//printf("%d ", ft_atoi(av[j]));
+			if(ft_atoi(av[i])==ft_atoi(av[j]))
+			{
+				printf("dup %d\n", ft_atoi(av[i]));
+				return(1);
+			}
+			j++;
+			}
+		i++;
+	}
+	return (0);
 }
