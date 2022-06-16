@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 06:13:16 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/14 08:19:36 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/15 11:14:05 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	push(stack **a, stack **b);
 void	rotate(stack **a);
 void	rotate_ab(stack **a, stack **b);
 void	reverse(stack **a);
+void	reverse_ab(stack **a, stack **b);
 
 #endif

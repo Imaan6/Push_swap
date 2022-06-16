@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/14 08:45:52 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/16 06:26:25 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,25 +63,23 @@ void	rotate_ab(stack **a, stack **b)
 void	reverse(stack **a)
 {
 	stack *temp, *pmet;
-	int i;
 
-	i = 0;
-	temp = *a;
 	pmet = *a;
+	temp = *a;
 	while(temp->next)
 	{
+		pmet = temp;
 		temp = temp->next;
-		i++;	
 	}
-	//printf("temp %d \n", temp->num);
-	//printf("%d\n", i);
-	while(i-1 > 0)
-	{
-		pmet = pmet->next;
-		i--;
-	//	printf("%d\n",i);
-	}
-	//printf("im here pmet %d", pmet->num);
+	printf(" temp : %d ", temp->num);
+	printf(" pmet %d ", pmet->num);
+	pmet->next = NULL;
 	temp->next = *a;
-	pmet->next = NULL;	
+	*a = temp;
+}
+
+void	reverse_ab(stack **a, stack **b)
+{
+	reverse(a);
+	reverse(b);
 }

@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/14 08:44:30 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/15 11:14:15 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,20 @@ void	display(stack *a, stack *b)
 	{
 		if(curr)
 		{
-			printf("%d ", curr->num);
+			printf("%d", curr->num);
 			curr = curr->next;	
 		}
-		else
-			printf("\n");
+		// else
+		// 	printf("  \n");
 		if(temp)
 		{
-			printf(" %d\n", temp->num);
+			printf("          %d\n", temp->num);
 			temp = temp->next;
 		}
 		else
-			printf("\n");
+			printf("   \n");
 	}
-	printf("- - \n a b \n");
+	printf("-          - \na          b \n");
 	printf("---------------------------------------------------------------------------\n");
 }
 
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 		insert(&b, 8);
 		display(a,b);
 		//push(&a,&b);
-		reverse(&a);
+		reverse_ab(&a,&b);
 		// swap(&a->num,&a->next->num);
 		//swap_ab(&a->num,&a->next->num,&b->num,&b->next->num);
 		display(a,b);
