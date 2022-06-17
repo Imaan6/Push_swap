@@ -6,29 +6,29 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/16 07:34:35 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:21:37 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(int* a, int* b)
+void swap(stack **a)
 {   
-	if(a && b)
+	int	temp;
+	if((*a) && (*a)->next)
     {    
-        int temp;
-        temp = *a;
-        *a = *b;
-        *b = temp;
+        temp = (*a)->num;
+        (*a)->num = (*a)->next->num;
+        (*a)->next->num = temp;
     }
 }
 
-void swap_ab(int *aa, int *ab, int *ba, int *bb)
-{
-    ft_putstr("Exec ss");
-    swap(aa, ab);
-    swap(ba, bb);
-}
+// void swap_ab(int *aa, int *ab, int *ba, int *bb)
+// {
+//     ft_putstr("Exec ss");
+//     swap(aa, ab);
+//     swap(ba, bb);
+// }
 
 void push(stack **a, stack **b)
 {

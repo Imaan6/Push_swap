@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/16 11:16:39 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/17 09:32:23 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ int	check_dups(char **av)
 			if(ft_atoi(av[i])==ft_atoi(av[j]))
 			{
 				printf("dup %d\n", ft_atoi(av[i]));
-				return(1);
+				return (0);
 			}
 			j++;
 			}
 		i++;
 	}
-	return (0);
+	return (1);
 }

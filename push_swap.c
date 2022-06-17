@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/16 10:48:42 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:05:05 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ int	main(int ac, char **av)
 		insert(&b, 4);
 		insert(&b, 2);
 		insert(&b, 5);
-		//display(a,b);
+		display(a,b);
 		//push(&a,&b);
 		//reverse_ab(&a,&b);
-		//swap(&a->num,&a->next->num);
+		swap(&a);
 		//swap_ab(&a->num,&a->next->num,&b->num,&b->next->num);
-		//display(a,b);
+		display(a,b);
 	}
-	//display(b);1
+	//display(b);
 }
