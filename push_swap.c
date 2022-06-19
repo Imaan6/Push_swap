@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/17 12:05:05 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/19 07:36:03 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void	display(stack *a, stack *b)
 	stack *curr = a;
 	stack *temp = b;
 	printf("---------------------------------------------------------------------------\n");
-	while (curr || temp)
+	while (temp || curr)
 	{
 		if(curr)
 		{
 			printf("%d", curr->num);
 			curr = curr->next;	
 		}
-		// else
+		// // else
 		// 	printf("  \n");
 		if(temp)
 		{
@@ -66,24 +66,25 @@ int	main(int ac, char **av)
 	stack *a = NULL;
 	if(ac > 1 && check_dups(av))
 	{
-		//printf("Im here");
 		int	i;
 		i = 1;	
 		while(i < ac)
 		{
 			insert(&a, ft_atoi(av[i++]));
-			//insert(&b, ft_atoi(av[i++]));
 		}
-		insert(&b, 9);
-		insert(&b, 4);
-		insert(&b, 2);
-		insert(&b, 5);
-		display(a,b);
-		//push(&a,&b);
-		//reverse_ab(&a,&b);
-		swap(&a);
-		//swap_ab(&a->num,&a->next->num,&b->num,&b->next->num);
-		display(a,b);
+		if(ac == 4)
+		{
+			display(a,b);
+			while(a)
+			{
+				if(a->num > a->next->num)
+					swap(&a, 0);
+				else if(a->num > a->next->next->num)
+					reverse(&a, 0);
+			}l
+			printf("\n");
+			display(a,b);
+		}
 	}
 	//display(b);
 }
