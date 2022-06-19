@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/19 07:36:03 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/19 08:03:05 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,10 @@ int	main(int ac, char **av)
 		if(ac == 4)
 		{
 			display(a,b);
-			while(a)
-			{
-				if(a->num > a->next->num)
-					swap(&a, 0);
-				else if(a->num > a->next->next->num)
-					reverse(&a, 0);
-			}l
+			if(a->num > a->next->num)
+				swap(&a, 0);
+			else if(a->num > a->next->next->num)
+				reverse(&a, 0);
 			printf("\n");
 			display(a,b);
 		}
