@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/21 07:52:29 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/21 10:05:30 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ void swap(stack **a, int i)
         (*a)->next->num = temp;
     }
 	if(i == 0)
-		ft_putstr("sa ");
+		ft_putstr("sa\n");
 	else if(i == 1)
-		ft_putstr("sb ");
+		ft_putstr("sb\n");
 }
 
 void swap_ab(stack **a, stack**b)
 {
-    ft_putstr("ss ");
+    ft_putstr("ss\n");
     swap(b,5);
     swap(a,5);
 }
 
-//first argument in push is the stack we push to
+//first argument in function push is the stack we push to
 void push(stack **a, stack **b, int i)
 {
 	stack *temp, *pmet;
@@ -48,17 +48,17 @@ void push(stack **a, stack **b, int i)
 		(*b) = pmet;
 	}
 	if(i == 0)
-		ft_putstr("pa ");
+		ft_putstr("pa\n");
 	else if(i == 1)
-		ft_putstr("pb ");
+		ft_putstr("pb\n");
 }
 
 void	rotate(stack **a, int i)
 {
 	if(i == 0)
-		ft_putstr("ra ");
+		ft_putstr("ra\n");
 	else if(i == 1)
-		ft_putstr("rb ");
+		ft_putstr("rb\n");
 	stack	*temp, *pmet;
 	
 	temp = *a;
@@ -72,7 +72,7 @@ void	rotate(stack **a, int i)
 
 void	rotate_ab(stack **a, stack **b)
 {
-	ft_putstr("rr ");
+	ft_putstr("rr\n");
 	rotate(a, 5);
 	rotate(b, 5);
 }
@@ -80,9 +80,9 @@ void	rotate_ab(stack **a, stack **b)
 void	reverse(stack **a, int i)
 {
 	if(i == 0)
-		ft_putstr("rra ");
+		ft_putstr("rra\n");
 	else if(i == 1)
-		ft_putstr("rrb ");
+		ft_putstr("rrb\n");
 	stack *temp, *pmet;
 
 	pmet = *a;
@@ -92,8 +92,6 @@ void	reverse(stack **a, int i)
 		pmet = temp;
 		temp = temp->next;
 	}
-	printf(" temp : %d ", temp->num);
-	printf(" pmet %d ", pmet->num);
 	pmet->next = NULL;
 	temp->next = *a;
 	*a = temp;
@@ -101,7 +99,7 @@ void	reverse(stack **a, int i)
 
 void	reverse_ab(stack **a, stack **b)
 {
-	ft_putstr("rrr ");
+	ft_putstr("rrr\n");
 	reverse(a, 5);
 	reverse(b, 5);
 } 
