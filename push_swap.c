@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/22 06:03:49 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:45:41 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,48 +60,26 @@ void	display(stack *a, stack *b)
 	printf("---------------------------------------------------------------------------\n");
 }
 
-void	sort_three(stack **s)
+void sort(stack **a, stack **b, int ac)
 {
-	int a, b, c;
-	a = (*s)->num;
-	b = (*s)->next->num;
-	c = (*s)->next->next->num;
-	if(a > b && b > c && c < a)
-	{
-		swap(s, 0);
-		reverse(s, 0);
-	}
-	else if(a > b && c > b && c < a)
-		rotate(s, 0);
-	else if(a > b && c > a && c > b)
-		swap(s, 0);
-	else if(a < b && b > a && a > c)
-		reverse(s, 0);
-	else if(a < b && b > c && c > a)
-	{
-		swap(s,0);
-		rotate(s, 0);
-	}
+    stack *curr, *temp;
+
+    temp = *a;
+    curr = *a;
+    if (ac == 3)
+    {
+        if (temp->num > temp->next->num)
+            swap(a, 0);
+    }
+    else if (ac == 4)
+        sort_three(a);
+    else if (ac == 5)
+        sort_four(a, b);
+	else if (ac == 6)
+		sort_five(a,b);
 }
 
-void	sort(stack **a, int ac)
-{
-	stack *curr, *temp;
- 
-	temp = *a;
-	curr = *a;
-	if(ac == 3)
-	{
-		if(temp->num > temp->next->num)
-			swap(a, 0);
-	}
-	else if(ac == 4)
-	{
-		sort_three(a);
-	}
-}
- 
-int	main(int ac, char **av)
+int	main(int ac, char **av) 
 {
 	stack *b = NULL;
 	stack *a = NULL;
@@ -113,8 +91,8 @@ int	main(int ac, char **av)
 		{
 			insert(&a, ft_atoi(av[i++]));
 		}
-		display(a, b);
-		sort(&a, ac);
-		display(a, b);
+		//display(a, b);
+		sort(&a, &b, ac);
+		//display(a, b);
 	}
 }
