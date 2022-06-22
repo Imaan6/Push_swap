@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/21 11:06:10 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/22 06:03:49 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,29 @@ void	sort_three(stack **s)
 	int a, b, c;
 	a = (*s)->num;
 	b = (*s)->next->num;
-	c = (*s)->next->next->num; 
-	printf("Im here");
-	if(a > b && b > c)
+	c = (*s)->next->next->num;
+	if(a > b && b > c && c < a)
 	{
 		swap(s, 0);
 		reverse(s, 0);
-	}	
+	}
+	else if(a > b && c > b && c < a)
+		rotate(s, 0);
+	else if(a > b && c > a && c > b)
+		swap(s, 0);
+	else if(a < b && b > a && a > c)
+		reverse(s, 0);
+	else if(a < b && b > c && c > a)
+	{
+		swap(s,0);
+		rotate(s, 0);
+	}
 }
 
 void	sort(stack **a, int ac)
 {
 	stack *curr, *temp;
-
+ 
 	temp = *a;
 	curr = *a;
 	if(ac == 3)
@@ -90,7 +100,7 @@ void	sort(stack **a, int ac)
 		sort_three(a);
 	}
 }
-
+ 
 int	main(int ac, char **av)
 {
 	stack *b = NULL;
@@ -104,12 +114,7 @@ int	main(int ac, char **av)
 			insert(&a, ft_atoi(av[i++]));
 		}
 		display(a, b);
-		//push(&a, &b, 1);
 		sort(&a, ac);
-		//swap(&a, 0);
-		//rotate(&a, 0);
-		//swap(&a, 0);
-		//reverse(&a, 0);
 		display(a, b);
 	}
 }
