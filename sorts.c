@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/22 10:59:31 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/25 01:00:03 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void sort_three(stack **s)
 
 void	sort_four(stack **a, stack **b)
 {
-    stack *smoll, *temp;
+    stack *smoll, *temp;\
+	int pmet;
 
     smoll = (*a);
     temp = (*a);
@@ -51,12 +52,18 @@ void	sort_four(stack **a, stack **b)
     {
         if (smoll->num > temp->num)
             smoll = temp;
+		pmet = temp->num;
         temp = temp->next;
     }
-    while (smoll->num != (*a)->num)
+    if(smoll->num == pmet)
+        reverse(a, 0);
+    else
     {
-        rotate(a, 0);
-    }
+        while (smoll->num != (*a)->num)
+        {
+            rotate(a, 0);
+        }
+	}
     push(b, a, 1);
     sort_three(a);
     push(a, b, 0);
@@ -65,6 +72,7 @@ void	sort_four(stack **a, stack **b)
 void	sort_five(stack **a, stack **b)
 {
 	stack *smoll, *temp;
+	int pmet;
 
     smoll = (*a);
     temp = (*a);
@@ -72,13 +80,19 @@ void	sort_five(stack **a, stack **b)
     {
         if (smoll->num > temp->num)
             smoll = temp;
+		pmet = temp->num;
         temp = temp->next;
     }
-    while (smoll->num != (*a)->num)
+    if(smoll->num == pmet)
+        reverse(a, 0);
+    else
     {
-        rotate(a, 0);
-    }
+        while (smoll->num != (*a)->num)
+        {
+            rotate(a, 0);
+        }
+	}
     push(b, a, 1);
-    //sort_four(a, b);
+    sort_four(a, b);
     push(a, b, 0);
 }

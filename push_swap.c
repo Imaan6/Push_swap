@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/22 10:45:41 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/22 12:05:21 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int ac, char **av)
 	stack *b = NULL;
 	stack *a = NULL;
 	if(ac > 1 && check_dups(av))
-	{
+	{ 
 		int	i;
 		i = 1;	
 		while(i < ac)
