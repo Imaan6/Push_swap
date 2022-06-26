@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 06:13:16 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/22 10:27:46 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/25 16:04:12 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ void	sort_four(stack **a, stack **b);
 void	sort_three(stack **s);
 void	display(stack *a, stack *b);
 void	sort_five(stack **a, stack **b);
+void	sort_lessthanten(stack **a, stack **b, int ac);
+void	insert(stack **head, int num);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/25 01:00:03 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/06/26 10:02:29 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,60 @@ void	sort_five(stack **a, stack **b)
     push(b, a, 1);
     sort_four(a, b);
     push(a, b, 0);
+}
+
+void	sort_lessthanten(stack **a, stack **b, int ac)
+{
+	int tab[ac-2];
+	stack *temp;
+	int i, j, z;
+
+	i = 0;
+	temp = *a;
+	while(temp && tab[i])
+	{
+		tab[i++] = temp->num;
+		temp = temp->next;
+	}
+	i = 0;
+	while(tab[i])
+	{
+		j = 0;
+		while(tab[j+1])
+		{
+			if(tab[j] > tab[j+1])
+			{
+				z = tab[j];
+				tab[j] = tab[j+1];
+				tab[j+1] = z;
+			}
+			j++;
+		}
+		i++;
+	}
+	// i = ac/2;
+	// j = 1;
+	// while(i+j >= 0)
+	// {
+	// 	temp = *a; 
+	// 	if(i == ac/2)
+	// 	{
+	// 		while(temp->num != tab[i])
+	// 			temp = temp->next;	
+	// 		push(b, &temp, 0);
+	// 	}
+	// 	else
+	// 		while(temp->num != tab[i+j] || temp->num != tab[i-j])
+	// 			temp = temp->next;
+	// 		if (temp->num == tab[i+j])
+	// 			push(b, &temp, 1);
+	// 		else if(temp->num == tab[i-j])
+	// 		{
+	// 			push(b, &temp, 1);
+	// 			rotate(b, 1);
+	// 		}
+	// 	j++;
+	// }
+	
+	
 }
