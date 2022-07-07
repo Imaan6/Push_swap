@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/26 08:14:43 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:04:44 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	display(stack *a, stack *b)
 		if(curr)
 		{
 			printf("%d", curr->num);
-			curr = curr->next;	
+			curr = curr->next;
 		}
 		// // else
 		// 	printf("  \n");

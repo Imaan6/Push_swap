@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/26 10:02:29 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:17:15 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	sort_lessthanten(stack **a, stack **b, int ac)
 
 	i = 0;
 	temp = *a;
-	while(temp && tab[i])
+	while(temp)
 	{
 		tab[i++] = temp->num;
 		temp = temp->next;
@@ -126,29 +126,13 @@ void	sort_lessthanten(stack **a, stack **b, int ac)
 		}
 		i++;
 	}
-	// i = ac/2;
-	// j = 1;
-	// while(i+j >= 0)
-	// {
-	// 	temp = *a; 
-	// 	if(i == ac/2)
-	// 	{
-	// 		while(temp->num != tab[i])
-	// 			temp = temp->next;	
-	// 		push(b, &temp, 0);
-	// 	}
-	// 	else
-	// 		while(temp->num != tab[i+j] || temp->num != tab[i-j])
-	// 			temp = temp->next;
-	// 		if (temp->num == tab[i+j])
-	// 			push(b, &temp, 1);
-	// 		else if(temp->num == tab[i-j])
-	// 		{
-	// 			push(b, &temp, 1);
-	// 			rotate(b, 1);
-	// 		}
-	// 	j++;
-	// }
-	
-	
+    display(*a, *b);
+    i = 0;
+    while(tab[i])
+    {
+        printf("%d \n", tab[i]);
+        i++;
+    }
+    
+    
 }
