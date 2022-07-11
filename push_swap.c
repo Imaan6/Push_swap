@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/11 14:54:14 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:47:49 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void sort(stack **a, stack **b, int ac)
         sort_four(a, b);
 	else if (ac == 6)
 		sort_five(a,b);
-	else if (ac < 11)
+	else if (ac > 6)
 		radix_sort(a, b, ac-1);
 }
 

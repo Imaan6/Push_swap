@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/11 15:26:23 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:25:06 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ void sort_three(stack **s)
         rotate(s, 0);
     }
 }
-
-// void	sort_three(stack **a)
-// {
-	
-// }
 
 void	sort_four(stack **a, stack **b)
 {
@@ -105,7 +100,6 @@ void	radix_sort(stack **a, stack **b, int ac)
     int max_num = ac-1;
     int max_bits = 0;
 
-	//display(*a,*b);
     tab = malloc((ac) * sizeof(int));
 	i = 0;
 	temp = *a;
@@ -131,9 +125,6 @@ void	radix_sort(stack **a, stack **b, int ac)
 		}
 		i++;
 	}
-	// i=0;
-    // while(i < ac)
-    //     printf("%d \n", tab[i++]);
 
     i = 0;
     while(i < ac)
@@ -150,16 +141,28 @@ void	radix_sort(stack **a, stack **b, int ac)
                 temp = temp->next;
         }
     }
-    
-    // printf("Indexs: \n");
-    // temp = *a;
-    // while(temp)
-    // {
-    //     printf("%d \n" , temp->index);
-    //     temp = temp->next;
-    // }
-    //printf(" %x \n", 12&23 );
-	// while((max_num >> max_bits) != 0)
-    // 	printf("%d \n" , ++max_bits);
-    // free(tab);
+	while((max_num >> max_bits) != 0)
+    	++max_bits;
+	i = 0;
+	while(i < max_bits)
+	{
+		j = 0;
+		temp = *a;
+			while(j < ac)
+			{
+				if(((temp->index >> i)&1) == 1)
+					rotate(&temp, 0);
+				else
+					push(b, &temp, 1);
+				j++;
+			}
+			//display(temp,*b);
+			// while(b)
+			// {
+			// 	push(a,b,0);
+			// 	b = b->next;
+			// }
+			i++;
+	}
+    free(tab);
 }
