@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/07 15:17:15 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:26:23 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,16 @@ void	sort_five(stack **a, stack **b)
     push(a, b, 0);
 }
 
-void	sort_lessthanten(stack **a, stack **b, int ac)
+void	radix_sort(stack **a, stack **b, int ac)
 {
-	int tab[ac-2];
+	int *tab;
 	stack *temp;
 	int i, j, z;
+    int max_num = ac-1;
+    int max_bits = 0;
 
+	//display(*a,*b);
+    tab = malloc((ac) * sizeof(int));
 	i = 0;
 	temp = *a;
 	while(temp)
@@ -110,11 +114,12 @@ void	sort_lessthanten(stack **a, stack **b, int ac)
 		tab[i++] = temp->num;
 		temp = temp->next;
 	}
+
 	i = 0;
-	while(tab[i])
-	{
+	while(i < ac)
+	{ 
 		j = 0;
-		while(tab[j+1])
+		while(j+1 < ac)
 		{
 			if(tab[j] > tab[j+1])
 			{
@@ -126,13 +131,35 @@ void	sort_lessthanten(stack **a, stack **b, int ac)
 		}
 		i++;
 	}
-    display(*a, *b);
+	// i=0;
+    // while(i < ac)
+    //     printf("%d \n", tab[i++]);
+
     i = 0;
-    while(tab[i])
+    while(i < ac)
     {
-        printf("%d \n", tab[i]);
-        i++;
+        temp = *a;
+        while(temp)
+        {
+            if(tab[i] == temp->num)
+            {
+                temp->index = i++;
+                break;
+            }
+            else
+                temp = temp->next;
+        }
     }
     
-    
+    // printf("Indexs: \n");
+    // temp = *a;
+    // while(temp)
+    // {
+    //     printf("%d \n" , temp->index);
+    //     temp = temp->next;
+    // }
+    //printf(" %x \n", 12&23 );
+	// while((max_num >> max_bits) != 0)
+    // 	printf("%d \n" , ++max_bits);
+    // free(tab);
 }
