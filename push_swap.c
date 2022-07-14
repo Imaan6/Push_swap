@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/14 01:46:14 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/14 14:04:31 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,12 @@ void sort(stack **a, stack **b, int ac)
 		radix_sort(a, b, ac-1);
 }
 
+void test(stack **a, stack **b)
+{
+	while(*b)
+		push(a, b, 0);
+}
+
 int	main(int ac, char **av) 
 {
 	stack *b = NULL;
@@ -93,6 +99,7 @@ int	main(int ac, char **av)
 			insert(&a, ft_atoi(av[i++]));
 		//display(a, b);
 		sort(&a, &b, ac);
-		//display(a, b);
+		// display(a, b);
+		// rotate(&a,0);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/14 01:44:06 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/14 14:07:01 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,33 +47,19 @@ void push(stack **a, stack **b, int i)
 	(*a) = (*b);
 	(*a)->next = temp;
 	(*b) = pmet;
-	display(*a, *b);
+	//display(*a, *b);
 	if(i == 0)
 		ft_putstr("pa\n");
 	else if(i == 1)
 		ft_putstr("pb\n");
 }
 
-void    push(stack **b, stack **a, int i)
-{
-    stack    *node;
-
-    node = (*a);
-    (*a) = (*a)->next;
-    node->next = (*b);
-    (*b) = node;
-    if (i != 0)
-        write(1, "pb\n", 3);
-}
-
 void	rotate(stack **a, int i)
 {
-	if(i == 0)
-		ft_putstr("ra\n");
-	else if(i == 1)
-		ft_putstr("rb\n");
 	stack	*temp, *pmet;
-	
+
+	if((*a)->next == NULL)
+		return ;	
 	temp = *a;
 	pmet = *a; 
 	(*a) = temp->next;
@@ -81,6 +67,10 @@ void	rotate(stack **a, int i)
 		pmet = pmet->next;
 	temp->next = NULL;
 	pmet->next = temp;
+	if(i == 0)
+		ft_putstr("ra\n");
+	else if(i == 1)
+		ft_putstr("rb\n");
 }
 
 void	rotate_ab(stack **a, stack **b)

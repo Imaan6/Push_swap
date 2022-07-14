@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/14 01:44:22 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/14 14:30:50 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,29 +144,23 @@ void	radix_sort(stack **a, stack **b, int ac)
 	while((max_num >> max_bits) != 0)
     	++max_bits;
 	i = 0;
-	while(max_bits != 0)
+	while(i < max_bits)
 	{
 		j = 0;
 		temp = *a;
-			while(j != 10)
+			while(j < ac)
 			{
-				printf("haha");
 				if(((temp->index >> i)&1) == 1)
 					rotate(&temp, 0);
 				else
-				{
-					printf("Im here");
-					push(b, &temp, 0);
-				}
-				
-				//display(*b,*a);
+					push(b, &temp, 1);
 				j++;
 			}
-			//display(temp,*b);
-			while(b)
+            (*a) = temp; // this was the problem - this stupid little line of code that i forgot to write >-<"
+			while((*b) != NULL)
 			 	push(a,b,0);
-			max_bits--;
 			i++;
 	}
+    display(*a,*b);
 	free(tab);
 }
