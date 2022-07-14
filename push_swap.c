@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/13 18:55:03 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/14 01:46:14 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,9 @@ int	main(int ac, char **av)
 		int	i;
 		i = 1;	
 		while(i < ac)
-		{
 			insert(&a, ft_atoi(av[i++]));
-		}
-		while(a->next)
-		{
-			//printf("%d \n", a->num);
-			a = a->next;
-			printf("%d \n", a->num);
-		}
 		//display(a, b);
-		//sort(&a, &b, ac);
+		sort(&a, &b, ac);
 		//display(a, b);
 	}
 }
