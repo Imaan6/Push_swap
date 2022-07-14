@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/11 17:25:06 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/14 01:44:22 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,25 +144,29 @@ void	radix_sort(stack **a, stack **b, int ac)
 	while((max_num >> max_bits) != 0)
     	++max_bits;
 	i = 0;
-	while(i < max_bits)
+	while(max_bits != 0)
 	{
 		j = 0;
 		temp = *a;
-			while(j < ac)
+			while(j != 10)
 			{
+				printf("haha");
 				if(((temp->index >> i)&1) == 1)
 					rotate(&temp, 0);
 				else
-					push(b, &temp, 1);
+				{
+					printf("Im here");
+					push(b, &temp, 0);
+				}
+				
+				//display(*b,*a);
 				j++;
 			}
 			//display(temp,*b);
-			// while(b)
-			// {
-			// 	push(a,b,0);
-			// 	b = b->next;
-			// }
+			while(b)
+			 	push(a,b,0);
+			max_bits--;
 			i++;
 	}
-    free(tab);
+	free(tab);
 }

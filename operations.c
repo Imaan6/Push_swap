@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/06/25 16:09:23 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/14 01:44:06 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,33 @@ void swap_ab(stack **a, stack**b)
 void push(stack **a, stack **b, int i)
 {
 	stack *temp, *pmet;
+
+	if(!*b)
+		return ;
 	
 	pmet = (*b)->next;
 	temp = *a;
 	(*a) = (*b);
 	(*a)->next = temp;
 	(*b) = pmet;
+	display(*a, *b);
 	if(i == 0)
 		ft_putstr("pa\n");
 	else if(i == 1)
 		ft_putstr("pb\n");
 }
 
+void    push(stack **b, stack **a, int i)
+{
+    stack    *node;
+
+    node = (*a);
+    (*a) = (*a)->next;
+    node->next = (*b);
+    (*b) = node;
+    if (i != 0)
+        write(1, "pb\n", 3);
+}
 
 void	rotate(stack **a, int i)
 {
