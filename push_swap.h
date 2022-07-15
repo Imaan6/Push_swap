@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 06:13:16 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/14 14:11:00 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/15 18:23:57 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct Node
 	struct Node	*next;
 }	stack;
 
-int		ft_atoi(const char *str);
+unsigned long		ft_atoi(const char *str);
 void	swap(stack **a, int i);
 int		ft_putstr(char *str);
 void	swap_ab(stack **a, stack **b);
@@ -42,5 +42,7 @@ void	display(stack *a, stack *b);
 void	sort_five(stack **a, stack **b);
 void	radix_sort(stack **a, stack **b, int ac);
 void	insert(stack **head, int num);
+int		is_digit(char **av);
+int		is_sorted(stack *a, int ac);
 
 #endif

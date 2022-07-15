@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/14 14:30:50 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/14 14:41:11 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ void	radix_sort(stack **a, stack **b, int ac)
 					push(b, &temp, 1);
 				j++;
 			}
-            (*a) = temp; // this was the problem - this stupid little line of code that i forgot to write >-<"
+            (*a) = temp; // this was the problem - this stupid little line of code that I forgot to write >-<"
 			while((*b) != NULL)
 			 	push(a,b,0);
 			i++;

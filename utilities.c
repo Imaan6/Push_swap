@@ -6,13 +6,13 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/09 13:38:00 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/15 18:35:15 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+unsigned long	ft_atoi(const char *str)
 {
 	unsigned long	r;
 	int				i;
@@ -34,11 +34,18 @@ int	ft_atoi(const char *str)
 		r = r * 10 + (str[i] - '0');
 		i++;
 	}
-	if (r >= 9223372036854775807 && o == -1)
-		return (0);
-	else if (r >= 9223372036854775807 && o == 1)
-		return (-1);
+	if (r >= 2147483649 && o == -1)
+	{
+		ft_putstr("Error\n");
+		exit(1);
+	}
+	else if (r >= 2147483648 && o == 1)
+	{
+		ft_putstr("Error\n");
+		exit(2);
+	}
 	return (o * r);
+
 }
 int	ft_putstr(char *str)
 {
@@ -74,6 +81,28 @@ int	check_dups(char **av)
 			j++;
 			}
 		i++;
+	}
+	return (1);
+}
+
+int is_digit(char **av)
+{
+	int	i, j;
+	
+	j = 1;
+	while(av[j])
+	{
+		i=0;
+		while(av[j][i])
+		{
+			if ((av[j][0] == '-' || av[j][0] == '+') && i == 0)
+				i++;
+			if (av[j][i] > 47 && av[j][i] < 58)
+				i++;
+			else
+				return 0;	
+		}
+		j++;
 	}
 	return (1);
 }
