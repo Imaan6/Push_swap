@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/15 18:35:15 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/16 17:11:47 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ unsigned long	ft_atoi(const char *str)
 		i++;
 	}
 	if (r >= 2147483649 && o == -1)
-	{
-		ft_putstr("Error\n");
-		exit(1);
-	}
+		error_handling();
 	else if (r >= 2147483648 && o == 1)
-	{
-		ft_putstr("Error\n");
-		exit(2);
-	}
+		error_handling();
 	return (o * r);
-
 }
+
+void	error_handling()
+{
+	ft_putstr("Error\n");
+	exit(2);
+}
+
 int	ft_putstr(char *str)
 {
 	int	i;
