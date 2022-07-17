@@ -6,18 +6,18 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/16 17:49:28 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/17 00:26:53 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	insert(stack **head, int num)
+void	insert(t_stack **head, int num)
 {
-	stack	*new;
-	stack	*temp;
+	t_stack	*new;
+	t_stack	*temp;
 
-	new = (stack *)malloc(sizeof(stack));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	temp = *head;
 	new->num = num;
 	new->next = NULL;
@@ -34,10 +34,10 @@ void	insert(stack **head, int num)
 	}
 }
 
-void	sort(stack **a, stack **b, int ac)
+void	sort(t_stack **a, t_stack **b, int ac)
 {
-	stack	*curr;
-	stack	*temp;
+	t_stack	*curr;
+	t_stack	*temp;
 
 	temp = *a;
 	curr = *a;
@@ -56,7 +56,7 @@ void	sort(stack **a, stack **b, int ac)
 		radix_sort(a, b, ac - 1);
 }
 
-int	is_sorted(stack *a, int ac)
+int	is_sorted(t_stack *a, int ac)
 {
 	int	i;
 
@@ -70,31 +70,12 @@ int	is_sorted(stack *a, int ac)
 	return (i == ac - 1);
 }
 
-int	main(int ac, char **av) 
+/*
+void	display(t_stack *a, t_stack *b)
 {
-	stack	*b;
-	stack	*a;
-	int		i;
-
-	b = NULL;
-	a = NULL;
-	if (ac > 1 && check_dups(av) && is_digit(av) == 1)
-	{
-		i = 1;
-		while (i < ac)
-			insert(&a, ft_atoi(av[i++]));
-		if (!is_sorted(a, ac))
-			sort(&a, &b, ac);
-	}
-	if (!a)
-		ft_putstr("Error\n");
-}
-
-/*void	display(stack *a, stack *b)
-{
-	stack	*curr = a;
-	stack	*temp = b;
-	printf("---------------------------------------------------------------------------\n");
+	t_stack	*curr = a;
+	t_stack	*temp = b;
+	printf("--------------------------\n");
 	while (temp || curr)
 	{
 		if(curr)
@@ -113,5 +94,24 @@ int	main(int ac, char **av)
 			printf("   \n");
 	}
 	printf("-          - \na          b \n");
-	printf("---------------------------------------------------------------------------\n");
+	printf("-----------------------------\n");
 } */
+int	main(int ac, char **av)
+{
+	t_stack	*b;
+	t_stack	*a;
+	int		i;
+
+	b = NULL;
+	a = NULL;
+	if (ac > 1 && check_dups(av) && is_digit(av) == 1)
+	{
+		i = 1;
+		while (i < ac)
+			insert(&a, ft_atoi(av[i++]));
+		if (!is_sorted(a, ac))
+			sort(&a, &b, ac);
+	}
+	if (!a)
+		ft_putstr("Error\n");
+}

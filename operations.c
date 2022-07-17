@@ -6,13 +6,13 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/16 17:32:52 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/17 02:18:43 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(stack **a, int i)
+void	swap(t_stack **a, int i)
 {
 	int	temp;
 
@@ -28,18 +28,18 @@ void	swap(stack **a, int i)
 		ft_putstr("sb\n");
 }
 
-void	swap_ab(stack **a, stack**b)
+void	swap_ab(t_stack **a, t_stack **b)
 {
-	swap(b ,5);
-	swap(a ,5);
+	swap(b, 5);
+	swap(a, 5);
 	ft_putstr("ss\n");
 }
 
 //first argument in function push is the stack we push to
-void	push(stack **a, stack **b, int i)
+int	push(t_stack **a, t_stack **b, int i)
 {
-	stack	*temp;
-	stack	*pmet;
+	t_stack	*temp;
+	t_stack	*pmet;
 
 	if (!*b)
 		return ;
@@ -54,10 +54,10 @@ void	push(stack **a, stack **b, int i)
 		ft_putstr("pb\n");
 }
 
-void	rotate(stack **a, int i)
+void	rotate(t_stack **a, int i)
 {
-	stack	*temp;
-	stack	*pmet;
+	t_stack	*temp;
+	t_stack	*pmet;
 
 	if ((*a)->next == NULL)
 		return ;
@@ -74,7 +74,7 @@ void	rotate(stack **a, int i)
 		ft_putstr("rb\n");
 }
 
-void	rotate_ab(stack **a, stack **b)
+void	rotate_ab(t_stack **a, t_stack **b)
 {
 	rotate(a, 5);
 	rotate(b, 5);

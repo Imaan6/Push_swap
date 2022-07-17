@@ -6,16 +6,16 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:32:29 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/16 17:33:49 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/17 02:57:51 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse(stack **a, int i)
+void	reverse(t_stack **a, int i)
 {
-	stack	*temp;
-	stack	*pmet;
+	t_stack	*temp;
+	t_stack	*pmet;
 
 	pmet = *a;
 	temp = *a;
@@ -33,9 +33,75 @@ void	reverse(stack **a, int i)
 		ft_putstr("rrb\n");
 }
 
-void	reverse_ab(stack **a, stack **b)
+void	reverse_ab(t_stack **a, t_stack **b)
 {
 	reverse(a, 5);
 	reverse(b, 5);
 	ft_putstr("rrr\n");
+}
+
+int*	fill_tab(t_stack *a, int ac)
+{
+	int		*tab;
+	t_stack *temp;
+	int i;
+
+	tab = malloc((ac) * sizeof(int));
+	i = 0;
+	temp = *a;
+	while(temp)
+	{
+		tab[var[0]++] = temp->num;
+		temp = temp->next;
+	}
+	return (tab);
+}
+
+int*	sort_tab(int* tab, int ac)
+{
+	int	i;
+	int	j;
+	int z;
+
+	i = 0;	
+	while(i < ac)
+	{ 
+		j = 0;
+		while(j+1 < ac)
+		{
+			if(tab[j] > tab[j+1])
+			{
+				z = tab[j];
+				tab[j] = tab[j+1];
+				tab[j+1] = z;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (*tab);
+}
+
+void	indexing(t_stack *a, int ac, int* tab)
+{
+	int i;
+	t_stack temp;
+	
+	temp = *a;
+	i = 0;
+	while(i < ac)
+	{
+		temp = *a;
+		while(temp)
+		{
+			if(tab[i] == temp->num)
+			{
+				temp->index = i++;
+				break;
+			}
+			else
+				temp = temp->next;
+			}
+	}
+	free(tab);
 }

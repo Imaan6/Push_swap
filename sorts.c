@@ -1,106 +1,109 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sorts.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 10:21:30 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/14 14:41:11 by iel-moha         ###   ########.fr       */
-/*                                                                            */
+/*	*/
+/*	:::	  ::::::::   */
+/*   sorts.c	:+:	  :+:	:+:   */
+/*	+:+ +:+	 +:+	 */
+/*   By: iel-moha <iel-moha@student.42.fr>	  +#+  +:+	   +#+	*/
+/*	+#+#+#+#+#+   +#+	   */
+/*   Created: 2022/06/22 10:21:30 by iel-moha	  #+#	#+#	 */
+/*   Updated: 2022/07/17 01:33:56 by iel-moha	 ###   ########.fr	   */
+/*	*/
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(stack **s)
+void	sort_three(t_stack **s)
 {
-    int a, b, c;
-    a = (*s)->num;
-    b = (*s)->next->num;
-    c = (*s)->next->next->num;
-    if (a > b && b > c && c < a)
-    {
-        swap(s, 0);
-        reverse(s, 0);
-    }
-    else if (a > b && c > b && c < a)
-        rotate(s, 0);
-    else if (a > b && c > a && c > b)
-        swap(s, 0);
-    else if (a < b && b > a && a > c)
-        reverse(s, 0);
-    else if (a < b && b > c && c > a)
-    {
-        swap(s, 0);
-        rotate(s, 0);
-    }
-}
+	int	a;
+	int	b;
+	int	c;
 
-void	sort_four(stack **a, stack **b)
-{
-    stack *smoll, *temp;\
-	int pmet;
-
-    smoll = (*a);
-    temp = (*a);
-    while (temp)
-    {
-        if (smoll->num > temp->num)
-            smoll = temp;
-		pmet = temp->num;
-        temp = temp->next;
-    }
-    if(smoll->num == pmet)
-        reverse(a, 0);
-    else
-    {
-        while (smoll->num != (*a)->num)
-        {
-            rotate(a, 0);
-        }
+	a = (*s)->num;
+	b = (*s)->next->num;
+	c = (*s)->next->next->num;
+	if (a > b && b > c && c < a)
+	{
+		swap(s, 0);
+		reverse(s, 0);
 	}
-    push(b, a, 1);
-    sort_three(a);
-    push(a, b, 0);
-}
-
-void	sort_five(stack **a, stack **b)
-{
-	stack *smoll, *temp;
-	int pmet;
-
-    smoll = (*a);
-    temp = (*a);
-    while (temp)
-    {
-        if (smoll->num > temp->num)
-            smoll = temp;
-		pmet = temp->num;
-        temp = temp->next;
-    }
-    if(smoll->num == pmet)
-        reverse(a, 0);
-    else
-    {
-        while (smoll->num != (*a)->num)
-        {
-            rotate(a, 0);
-        }
+	else if (a > b && c > b && c < a)
+		rotate(s, 0);
+	else if (a > b && c > a && c > b)
+		swap(s, 0);
+	else if (a < b && b > a && a > c)
+		reverse(s, 0);
+	else if (a < b && b > c && c > a)
+	{
+		swap(s, 0);
+		rotate(s, 0);
 	}
-    push(b, a, 1);
-    sort_four(a, b);
-    push(a, b, 0);
 }
 
-void	radix_sort(stack **a, stack **b, int ac)
+void	sort_four(t_stack **a, t_stack **b)
 {
-	int *tab;
-	stack *temp;
+	t_stack	*smoll;
+	t_stack	*temp;
+	int		pmet;
+
+	smoll = (*a);
+	temp = (*a);
+	while (temp)
+	{
+		if (smoll->num > temp->num)
+			smoll = temp;
+		pmet = temp->num;
+		temp = temp->next;
+	}
+	if (smoll->num == pmet)
+		reverse(a, 0);
+	else
+	{
+		while (smoll->num != (*a)->num)
+		{
+			rotate(a, 0);
+		}
+	}
+	push(b, a, 1);
+	sort_three(a);
+	push(a, b, 0);
+}
+
+void	sort_five(t_stack **a, t_stack **b)
+{
+	t_stack	*smoll;
+	t_stack	*temp;
+	int		pmet;
+
+	smoll = (*a);
+	temp = (*a);
+	while (temp)
+	{
+		if (smoll->num > temp->num)
+			smoll = temp;
+		pmet = temp->num;
+		temp = temp->next;
+	}
+	if (smoll->num == pmet)
+		reverse(a, 0);
+	else
+	{
+		while (smoll->num != (*a)->num)
+			rotate(a, 0);
+	}
+	push(b, a, 1);
+	sort_four(a, b);
+	push(a, b, 0);
+}
+
+void	radix_sort(t_stack **a, t_stack **b, int ac)
+{
+	int		*tab;
+	t_stack *temp;
 	int i, j, z;
-    int max_num = ac-1;
-    int max_bits = 0;
+	int max_num = ac-1;
+	int max_bits = 0;
 
-    tab = malloc((ac) * sizeof(int));
+	tab = malloc((ac) * sizeof(int));
 	i = 0;
 	temp = *a;
 	while(temp)
@@ -126,23 +129,23 @@ void	radix_sort(stack **a, stack **b, int ac)
 		i++;
 	}
 
-    i = 0;
-    while(i < ac)
-    {
-        temp = *a;
-        while(temp)
-        {
-            if(tab[i] == temp->num)
-            {
-                temp->index = i++;
-                break;
-            }
-            else
-                temp = temp->next;
-        }
-    }
+	i = 0;
+	while(i < ac)
+	{
+		temp = *a;
+		while(temp)
+		{
+			if(tab[i] == temp->num)
+			{
+				temp->index = i++;
+				break;
+			}
+			else
+				temp = temp->next;
+			}
+	}
 	while((max_num >> max_bits) != 0)
-    	++max_bits;
+		++max_bits;
 	i = 0;
 	while(i < max_bits)
 	{
@@ -156,11 +159,11 @@ void	radix_sort(stack **a, stack **b, int ac)
 					push(b, &temp, 1);
 				j++;
 			}
-            (*a) = temp; // this was the problem - this stupid little line of code that I forgot to write >-<"
+		(*a) = temp; // this was the problem - this stupid little line of code that I forgot to write >-<"
 			while((*b) != NULL)
 			 	push(a,b,0);
 			i++;
 	}
-    display(*a,*b);
+	//display(*a,*b);
 	free(tab);
 }

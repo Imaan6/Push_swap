@@ -6,13 +6,13 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/16 17:11:47 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/17 01:14:58 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-unsigned long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned long	r;
 	int				i;
@@ -41,7 +41,7 @@ unsigned long	ft_atoi(const char *str)
 	return (o * r);
 }
 
-void	error_handling()
+void	error_handling(void)
 {
 	ft_putstr("Error\n");
 	exit(2);
