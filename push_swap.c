@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/18 12:51:08 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:50:10 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	main(int ac, char **av)
 			insert(&a, ft_atoi(av[i++]));
 		if (!is_sorted(a, ac))
 			sort(&a, &b, ac);
-		display(a, b);
 	}
 	if (!a)
 		ft_putstr("Error\n");
