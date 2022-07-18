@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 11:11:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/17 02:18:43 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/18 12:48:02 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	swap_ab(t_stack **a, t_stack **b)
 }
 
 //first argument in function push is the stack we push to
-int	push(t_stack **a, t_stack **b, int i)
+void	push(t_stack **a, t_stack **b, int i)
 {
 	t_stack	*temp;
 	t_stack	*pmet;

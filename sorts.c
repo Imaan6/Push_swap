@@ -97,73 +97,40 @@ void	sort_five(t_stack **a, t_stack **b)
 
 void	radix_sort(t_stack **a, t_stack **b, int ac)
 {
-	int		*tab;
-	t_stack *temp;
-	int i, j, z;
-	int max_num = ac-1;
-	int max_bits = 0;
+	int	*tab;
+	int	max_num;
+	int	max_bits;
 
-	tab = malloc((ac) * sizeof(int));
-	i = 0;
-	temp = *a;
-	while(temp)
-	{
-		tab[i++] = temp->num;
-		temp = temp->next;
-	}
-
-	i = 0;
-	while(i < ac)
-	{ 
-		j = 0;
-		while(j+1 < ac)
-		{
-			if(tab[j] > tab[j+1])
-			{
-				z = tab[j];
-				tab[j] = tab[j+1];
-				tab[j+1] = z;
-			}
-			j++;
-		}
-		i++;
-	}
-
-	i = 0;
-	while(i < ac)
-	{
-		temp = *a;
-		while(temp)
-		{
-			if(tab[i] == temp->num)
-			{
-				temp->index = i++;
-				break;
-			}
-			else
-				temp = temp->next;
-			}
-	}
-	while((max_num >> max_bits) != 0)
+	max_num = ac - 1;
+	max_bits = 0;
+	tab = fill_tab(a, ac);
+	tab = sort_tab(tab, ac);
+	indexing(a, ac, tab);
+	while ((max_num >> max_bits) != 0)
 		++max_bits;
-	i = 0;
-	while(i < max_bits)
+	radixing(ac, a, b, max_bits);
+}
+
+void	radixing(int ac, t_stack **a, t_stack **b, int max_bits)
+{
+	int		i;
+	int		j;
+	t_stack	*temp;
+
+	i = -1;
+	while (++i < max_bits)
 	{
-		j = 0;
+		j = -1;
 		temp = *a;
-			while(j < ac)
-			{
-				if(((temp->index >> i)&1) == 1)
-					rotate(&temp, 0);
-				else
-					push(b, &temp, 1);
-				j++;
-			}
-		(*a) = temp; // this was the problem - this stupid little line of code that I forgot to write >-<"
-			while((*b) != NULL)
-			 	push(a,b,0);
-			i++;
+		while (++j < ac)
+		{
+			if (((temp->index >> i) & 1) == 1)
+				rotate(&temp, 0);
+			else
+				push(b, &temp, 1);
+		}
+		(*a) = temp;
+		while ((*b) != NULL)
+			push(a, b, 0);
 	}
-	//display(*a,*b);
-	free(tab);
 }

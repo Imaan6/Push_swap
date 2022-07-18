@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 17:32:29 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/17 02:57:51 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/18 12:49:14 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,68 +40,68 @@ void	reverse_ab(t_stack **a, t_stack **b)
 	ft_putstr("rrr\n");
 }
 
-int*	fill_tab(t_stack *a, int ac)
+int	*fill_tab(t_stack **a, int ac)
 {
 	int		*tab;
-	t_stack *temp;
-	int i;
+	t_stack	*temp;
+	int		i;
 
 	tab = malloc((ac) * sizeof(int));
 	i = 0;
 	temp = *a;
-	while(temp)
+	while (temp)
 	{
-		tab[var[0]++] = temp->num;
+		tab[i++] = temp->num;
 		temp = temp->next;
 	}
 	return (tab);
 }
 
-int*	sort_tab(int* tab, int ac)
+int	*sort_tab(int *tab, int ac)
 {
 	int	i;
 	int	j;
-	int z;
+	int	z;
 
-	i = 0;	
-	while(i < ac)
-	{ 
+	i = 0;
+	while (i < ac)
+	{
 		j = 0;
-		while(j+1 < ac)
+		while (j + 1 < ac)
 		{
-			if(tab[j] > tab[j+1])
+			if (tab[j] > tab[j + 1])
 			{
 				z = tab[j];
-				tab[j] = tab[j+1];
-				tab[j+1] = z;
+				tab[j] = tab[j + 1];
+				tab[j + 1] = z;
 			}
 			j++;
 		}
 		i++;
 	}
-	return (*tab);
+	return (tab);
 }
 
-void	indexing(t_stack *a, int ac, int* tab)
+void	indexing(t_stack **a, int ac, int *tab)
 {
-	int i;
-	t_stack temp;
-	
+	int		i;
+	t_stack	*temp;
+
 	temp = *a;
 	i = 0;
-	while(i < ac)
+	while (i < ac)
 	{
 		temp = *a;
-		while(temp)
+		while (temp)
 		{
-			if(tab[i] == temp->num)
+			if (tab[i] == temp->num)
 			{
 				temp->index = i++;
-				break;
+				break ;
 			}
 			else
 				temp = temp->next;
-			}
+		}
 	}
-	free(tab);
+	free (tab);
 }

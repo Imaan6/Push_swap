@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/17 01:14:58 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/18 12:59:19 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,41 +66,43 @@ int	ft_putstr(char *str)
 
 int	check_dups(char **av)
 {
-	int i , j;
+	int	i;
+	int	j;
+
 	i = 1;
-	while(av[i+1])
+	while (av[i + 1])
 	{
-		j=i+1;
-		while(av[j])
+		j = i + 1;
+		while (av[j])
 		{
-			//printf("%d ", ft_atoi(av[j]));
-			if(ft_atoi(av[i])==ft_atoi(av[j]))
+			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
 				return (0);
 			}
 			j++;
-			}
+		}
 		i++;
 	}
 	return (1);
 }
 
-int is_digit(char **av)
+int	is_digit(char **av)
 {
-	int	i, j;
-	
+	int	i;
+	int	j;
+
 	j = 1;
-	while(av[j])
+	while (av[j])
 	{
-		i=0;
-		while(av[j][i])
+		i = 0;
+		while (av[j][i])
 		{
 			if ((av[j][0] == '-' || av[j][0] == '+') && i == 0)
 				i++;
 			if (av[j][i] > 47 && av[j][i] < 58)
 				i++;
 			else
-				return 0;	
+				return (0);
 		}
 		j++;
 	}

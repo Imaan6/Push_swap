@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:57:19 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/17 00:26:53 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/18 12:51:08 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,32 +70,6 @@ int	is_sorted(t_stack *a, int ac)
 	return (i == ac - 1);
 }
 
-/*
-void	display(t_stack *a, t_stack *b)
-{
-	t_stack	*curr = a;
-	t_stack	*temp = b;
-	printf("--------------------------\n");
-	while (temp || curr)
-	{
-		if(curr)
-		{
-			printf("%d", curr->num);
-			curr = curr->next;
-		}
-		// // else
-		// 	printf("  \n");
-		if(temp)
-		{
-			printf("          %d\n", temp->num);
-			temp = temp->next;
-		}
-		else
-			printf("   \n");
-	}
-	printf("-          - \na          b \n");
-	printf("-----------------------------\n");
-} */
 int	main(int ac, char **av)
 {
 	t_stack	*b;
@@ -111,6 +85,7 @@ int	main(int ac, char **av)
 			insert(&a, ft_atoi(av[i++]));
 		if (!is_sorted(a, ac))
 			sort(&a, &b, ac);
+		display(a, b);
 	}
 	if (!a)
 		ft_putstr("Error\n");
