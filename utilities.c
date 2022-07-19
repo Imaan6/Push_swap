@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 12:34:42 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/18 17:52:43 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/19 01:05:31 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,28 +88,29 @@ int	check_dups(char **av)
 
 int	is_digit(char **av)
 {
-	int	i;
-	int	j;
+	int	i[2];
 
-	j = 1;
-	while (av[j])
+	i[0] = 0;
+	while (av[++i[0]])
 	{
-		if (av[j][0] == '\0')
+		if (av[i[0]][0] == '\0')
 			return (0);
-		i = 0;
-		while (av[j][i])
+		i[1] = 0;
+		while (av[i[0]][i[1]] == ' ')
+				i[1]++;
+		while (av[i[0]][i[1]])
 		{
-			if ((av[j][0] == '-' || av[j][0] == '+' || av[j][0] == ' ')
-			&& i == 0)
-				i++;
-			if (av[j][i] == ' ')
-				i++;
-			else if ((av[j][i] > 47 && av[j][i] < 58))
-				i++;
+			if (av[i[0]][i[1]] == '-' || av[i[0]][i[1]] == '+')
+			{	
+				i[1]++;
+				if (av[i[0]][i[1]] == '-' || av[i[0]][i[1]] == '+')
+					return (0);
+			}
+			else if ((av[i[0]][i[1]] > 47 && av[i[0]][i[1]] < 58))
+				i[1]++;
 			else
 				return (0);
 		}
-		j++;
 	}
 	return (1);
 }

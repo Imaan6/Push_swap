@@ -6,7 +6,7 @@
 /*   By: iel-moha <iel-moha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 06:13:16 by iel-moha          #+#    #+#             */
-/*   Updated: 2022/07/18 17:03:41 by iel-moha         ###   ########.fr       */
+/*   Updated: 2022/07/18 22:57:32 by iel-moha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ int		*fill_tab(t_stack **a, int ac);
 int		*sort_tab(int *tab, int ac);
 void	indexing(t_stack **a, int ac, int *tab);
 void	radixing(int ac, t_stack **a, t_stack **b, int max_bits);
-void	display(t_stack *a, t_stack *b);
 
 #endif
